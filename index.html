@@ -13,6 +13,198 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=bJ8gvB9nDZPTnaF7"></script>
+    <style id="cbf-mobile-fixes">
+      /* =============================================
+         CBF Mobile Responsiveness Fixes
+         ============================================= */
+
+      @media (max-width: 768px) {
+
+        /* --- Navigation --- */
+        /* Reduce nav padding on mobile */
+        nav > div,
+        header > div {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+
+        /* --- Hero section (Home) --- */
+        /* Reduce hero height and bottom padding on mobile */
+        section[style*="minHeight: 90vh"],
+        section[style*="minHeight:90vh"] {
+          min-height: 75vh !important;
+        }
+
+        /* Hero text container — reduce bottom padding */
+        section[style*="minHeight"] > div[style*="padding: 0 2rem 5rem"],
+        section[style*="minHeight"] > div[style*="padding:0 2rem 5rem"] {
+          padding: 0 1.25rem 3rem !important;
+        }
+
+        /* --- Section padding — reduce 6rem/5rem/9rem top/bottom to mobile-friendly sizes --- */
+        section[style*="padding: 6rem 2rem"],
+        section[style*="padding:6rem 2rem"] {
+          padding: 3.5rem 1.25rem !important;
+        }
+
+        section[style*="padding: 5rem 2rem"],
+        section[style*="padding:5rem 2rem"] {
+          padding: 3rem 1.25rem !important;
+        }
+
+        /* Inner page hero headers (About, GetInvolved, etc.) */
+        div[style*="padding: 9rem 2rem 5rem"],
+        div[style*="padding:9rem 2rem 5rem"] {
+          padding: 6rem 1.25rem 3rem !important;
+        }
+
+        div[style*="padding: 9rem 2rem 0"],
+        div[style*="padding:9rem 2rem 0"] {
+          padding: 6rem 1.25rem 0 !important;
+        }
+
+        div[style*="padding: 4rem 2rem"],
+        div[style*="padding:4rem 2rem"] {
+          padding: 2.5rem 1.25rem !important;
+        }
+
+        div[style*="padding: 4rem 2rem 3rem"],
+        div[style*="padding:4rem 2rem 3rem"] {
+          padding: 2.5rem 1.25rem 2rem !important;
+        }
+
+        div[style*="padding: 3rem 2rem"],
+        div[style*="padding:3rem 2rem"] {
+          padding: 2rem 1.25rem !important;
+        }
+
+        /* --- Two-column image overlay card fix --- */
+        /* The absolute-positioned date card overflows on mobile */
+        div[style*="position: absolute"][style*="bottom: -1.5rem"],
+        div[style*="position:absolute"][style*="bottom:-1.5rem"] {
+          position: static !important;
+          margin-top: 1rem !important;
+          display: inline-block !important;
+        }
+
+        /* Prevent image overflow in two-col sections */
+        .cbf-two-col img {
+          max-width: 100% !important;
+        }
+
+        /* --- Hero h1 font size floor --- */
+        h1[style*="fontSize"] {
+          font-size: clamp(1.9rem, 8vw, 3rem) !important;
+        }
+
+        /* --- Hero subtitle paragraph --- */
+        p[style*="maxWidth: 520px"],
+        p[style*="maxWidth:520px"] {
+          max-width: 100% !important;
+        }
+
+        /* --- CTA button row — stack on very small screens --- */
+        div[style*="display: flex"][style*="gap: 1rem"][style*="flexWrap: wrap"] {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+
+        /* --- Footer --- */
+        footer > div[style*="padding"] {
+          padding: 2.5rem 1.25rem 2rem !important;
+        }
+
+        /* Footer grid: force single column on small screens */
+        footer > div > div[style*="grid"] {
+          grid-template-columns: 1fr !important;
+          gap: 2rem !important;
+        }
+
+        /* --- Board grid --- */
+        .cbf-board-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.5rem !important;
+        }
+
+        /* --- Donate / GetInvolved page --- */
+        /* Givebutter widget container */
+        givebutter-widget {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        /* Donation amount buttons — wrap nicely */
+        div[style*="display: flex"][style*="flexWrap: wrap"][style*="gap"] {
+          gap: 0.5rem !important;
+        }
+
+        /* --- Historic Site page hero --- */
+        div[style*="height: 60vh"] {
+          height: 45vw !important;
+          min-height: 220px !important;
+        }
+
+        /* --- General max-width containers — add horizontal padding --- */
+        div[style*="maxWidth: 1200px"],
+        div[style*="maxWidth:1200px"] {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+
+        /* --- Timeline items on ClaraBarton page --- */
+        div[style*="display: flex"][style*="gap: 2rem"] {
+          gap: 1rem !important;
+        }
+
+      }
+
+      /* Extra small screens (phones < 480px) */
+      @media (max-width: 480px) {
+
+        /* Board grid: single column */
+        .cbf-board-grid {
+          grid-template-columns: 1fr 1fr !important;
+        }
+
+        /* Reduce hero height further */
+        section[style*="minHeight: 90vh"],
+        section[style*="minHeight:90vh"] {
+          min-height: 65vh !important;
+        }
+
+        /* Tighten inner page hero */
+        div[style*="padding: 9rem 2rem 5rem"],
+        div[style*="padding:9rem 2rem 5rem"] {
+          padding: 5rem 1rem 2.5rem !important;
+        }
+
+        /* Reduce section padding further */
+        section[style*="padding: 6rem 2rem"],
+        section[style*="padding:6rem 2rem"] {
+          padding: 2.5rem 1rem !important;
+        }
+
+        section[style*="padding: 5rem 2rem"],
+        section[style*="padding:5rem 2rem"] {
+          padding: 2.5rem 1rem !important;
+        }
+
+        /* Buttons full-width on tiny screens */
+        .cbf-btn-primary,
+        .cbf-btn-secondary {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+          box-sizing: border-box !important;
+        }
+
+        /* Reduce h2 size */
+        h2[style*="fontSize"] {
+          font-size: clamp(1.5rem, 6vw, 2rem) !important;
+        }
+
+      }
+    </style>
     <script type="module" crossorigin src="/assets/index-1ZAEC9dI.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BwtHV0yp.css">
   </head>
