@@ -93,8 +93,30 @@
         }
 
         /* --- Hero h1 font size floor --- */
-        h1[style*="fontSize"] {
-          font-size: clamp(1.9rem, 8vw, 3rem) !important;
+        /* Override the clamp(2.4rem, 5vw, 4rem) inline style — 5vw is ~19px on a 390px phone */
+        h1[style*="clamp"] {
+          font-size: clamp(1.75rem, 7.5vw, 2.8rem) !important;
+          line-height: 1.15 !important;
+          word-break: break-word !important;
+        }
+
+        /* Hero section: allow content to overflow vertically instead of clipping */
+        section[style*="overflow: hidden"][style*="minHeight"],
+        section[style*="overflow:hidden"][style*="minHeight"] {
+          overflow: visible !important;
+        }
+
+        /* Hero section: ensure it's tall enough to show the full headline */
+        section[style*="minHeight: 90vh"],
+        section[style*="minHeight:90vh"] {
+          min-height: auto !important;
+          padding-bottom: 3rem !important;
+        }
+
+        /* Hero inner text container: remove fixed maxWidth that clips on narrow screens */
+        div[style*="maxWidth: 680px"],
+        div[style*="maxWidth:680px"] {
+          max-width: 100% !important;
         }
 
         /* --- Hero subtitle paragraph --- */
