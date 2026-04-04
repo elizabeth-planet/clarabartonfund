@@ -217,15 +217,16 @@
            On desktop: 1fr 1fr grid with portrait on right at height:420px.
            On mobile: collapse to single column, portrait fills full width. */
 
-        /* Collapse the 1fr 1fr hero grid to single column */
-        div[style*="gridTemplateColumns: 1fr 1fr"],
-        div[style*="gridTemplateColumns:1fr 1fr"] {
+        /* Collapse the 1fr 1fr hero grid to single column.
+           React renders camelCase JSX props as kebab-case CSS in the DOM:
+           gridTemplateColumns -> grid-template-columns */
+        div[style*="grid-template-columns: 1fr 1fr"] {
           grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
         }
 
         /* Portrait image: switch from fixed height to full-width */
-        img[style*="height: 420px"],
-        img[style*="height:420px"] {
+        img[style*="height: 420px"] {
           height: auto !important;
           width: 100% !important;
           max-width: 100% !important;
@@ -234,8 +235,8 @@
           object-position: top center !important;
         }
 
-        /* Portrait container: fill width and remove flex-end alignment */
-        div[style*="justifyContent: flex-end"][style*="alignItems: flex-end"] {
+        /* Portrait container: fill width, remove flex-end push to right */
+        div[style*="justify-content: flex-end"][style*="align-items: flex-end"] {
           justify-content: stretch !important;
           align-items: stretch !important;
         }
