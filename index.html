@@ -83,6 +83,23 @@
         /* Ensure hamburger button is visible on mobile */
         nav button[aria-label="Toggle menu"] {
           display: flex !important;
+          flex-shrink: 0 !important;
+        }
+
+        /* Hero text container: prevent overflow, add safe padding */
+        section[style*="minHeight"] > div[style*="width: 100%"],
+        section[style*="minHeight"] > div[style*="width:100%"] {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+          box-sizing: border-box !important;
+          width: 100% !important;
+          max-width: 100vw !important;
+        }
+
+        /* All sections and their direct children: prevent horizontal overflow */
+        section {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
         }
 
         /* Decorative circles: hide on mobile to prevent overflow */
