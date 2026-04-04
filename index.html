@@ -18,19 +18,33 @@
          CBF Mobile Responsiveness Fixes
          ============================================= */
 
-      /* Global: prevent horizontal scroll caused by overflowing elements */
-      html, body {
+      /* Global: prevent horizontal scroll */
+      html {
         overflow-x: hidden !important;
-        max-width: 100% !important;
+      }
+      body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
       }
 
-      /* Decorative absolute circles on inner page heroes — clip them */
-      div[style*="position: absolute"][style*="width: 500px"],
-      div[style*="position: absolute"][style*="width: 600px"],
-      div[style*="position:absolute"][style*="width:500px"],
-      div[style*="position:absolute"][style*="width:600px"] {
-        overflow: hidden !important;
+      /* Hamburger button: the inline style has display:flex which overrides md:hidden.
+         Force correct visibility at each breakpoint. */
+      @media (min-width: 769px) {
+        nav button[aria-label="Toggle menu"] {
+          display: none !important;
+        }
+      }
+
+      /* Hero text: prevent all text from overflowing viewport */
+      #root * {
         max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      /* Exception: images and absolute elements can be wider */
+      #root img,
+      #root div[style*="position: absolute"],
+      #root div[style*="position:absolute"] {
+        max-width: none !important;
       }
 
       @media (max-width: 768px) {
