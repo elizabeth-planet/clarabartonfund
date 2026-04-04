@@ -213,15 +213,31 @@
           max-width: 100% !important;
         }
 
-        /* --- Clara Barton page: portrait photo fix ---
-           The hero portrait has height:420px width:auto — on mobile this
-           overflows horizontally. Cap height and constrain width. */
+        /* --- Clara Barton page: hero portrait layout ---
+           On desktop: 1fr 1fr grid with portrait on right at height:420px.
+           On mobile: collapse to single column, portrait fills full width. */
+
+        /* Collapse the 1fr 1fr hero grid to single column */
+        div[style*="gridTemplateColumns: 1fr 1fr"],
+        div[style*="gridTemplateColumns:1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Portrait image: switch from fixed height to full-width */
         img[style*="height: 420px"],
         img[style*="height:420px"] {
           height: auto !important;
-          max-height: 280px !important;
-          width: auto !important;
+          width: 100% !important;
           max-width: 100% !important;
+          max-height: 320px !important;
+          object-fit: cover !important;
+          object-position: top center !important;
+        }
+
+        /* Portrait container: fill width and remove flex-end alignment */
+        div[style*="justifyContent: flex-end"][style*="alignItems: flex-end"] {
+          justify-content: stretch !important;
+          align-items: stretch !important;
         }
 
         /* Clara Barton photo grid: 4-column grid is too tight on mobile */
