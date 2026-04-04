@@ -35,16 +35,11 @@
         }
       }
 
-      /* Hero text: prevent all text from overflowing viewport */
-      #root * {
+      /* Prevent text elements from overflowing viewport */
+      h1, h2, h3, h4, p, span, a, li {
         max-width: 100% !important;
-        box-sizing: border-box !important;
-      }
-      /* Exception: images and absolute elements can be wider */
-      #root img,
-      #root div[style*="position: absolute"],
-      #root div[style*="position:absolute"] {
-        max-width: none !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
       }
 
       @media (max-width: 768px) {
