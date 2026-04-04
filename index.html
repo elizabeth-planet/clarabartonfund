@@ -73,6 +73,18 @@
           box-sizing: border-box !important;
         }
 
+        /* CRITICAL: Hide desktop nav UL on mobile
+           The UL has inline style display:flex which overrides .hidden class.
+           We must use !important to force it hidden below 768px. */
+        nav ul.hidden {
+          display: none !important;
+        }
+
+        /* Ensure hamburger button is visible on mobile */
+        nav button[aria-label="Toggle menu"] {
+          display: flex !important;
+        }
+
         /* Decorative circles: hide on mobile to prevent overflow */
         div[style*="position: absolute"][style*="width: 500px"],
         div[style*="position: absolute"][style*="width: 600px"],
