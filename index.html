@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=bJ8gvB9nDZPTnaF7"></script>
+    <!-- Givebutter: load with high priority (no defer, no async) so widget renders immediately -->
+    <script src="https://widgets.givebutter.com/latest.umd.cjs?acct=bJ8gvB9nDZPTnaF7"></script>
     <style id="cbf-mobile-fixes">
       /* =============================================
          CBF Mobile Responsiveness Fixes
@@ -40,6 +41,13 @@
         max-width: 100% !important;
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
+      }
+
+      /* Givebutter widget: ensure it fills its container and is visible */
+      givebutter-widget {
+        display: block !important;
+        width: 100% !important;
+        min-height: 400px !important;
       }
 
       @media (max-width: 768px) {
@@ -189,6 +197,22 @@
         /* Prevent image overflow in two-col sections */
         .cbf-two-col img {
           max-width: 100% !important;
+        }
+
+        /* --- Clara Barton page: portrait photo fix ---
+           The hero portrait has height:420px width:auto — on mobile this
+           overflows horizontally. Cap height and constrain width. */
+        img[style*="height: 420px"],
+        img[style*="height:420px"] {
+          height: auto !important;
+          max-height: 280px !important;
+          width: auto !important;
+          max-width: 100% !important;
+        }
+
+        /* Clara Barton photo grid: 4-column grid is too tight on mobile */
+        div[style*="repeat(4, 1fr)"] {
+          grid-template-columns: repeat(2, 1fr) !important;
         }
 
         /* --- Hero h1 font size floor --- */
