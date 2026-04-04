@@ -46,19 +46,29 @@
           width: 100% !important;
           max-width: 100vw !important;
           box-sizing: border-box !important;
-          overflow: hidden !important;
+          overflow-x: clip !important;
         }
 
-        /* Nav inner container: tighter padding and no overflow */
-        nav > div:first-child {
+        /* Nav inner container: override inline padding and height */
+        /* Targets the div with inline style containing padding:0 2rem and height:76px */
+        nav div[style*="height: 76px"],
+        nav div[style*="height:76px"] {
           padding: 0 1rem !important;
-          width: 100% !important;
+          height: 60px !important;
           box-sizing: border-box !important;
+          width: 100% !important;
+        }
+
+        /* Shrink the logo on mobile */
+        nav img[style*="height: 56px"],
+        nav img[style*="height:56px"] {
+          height: 40px !important;
         }
 
         /* Mobile menu dropdown: full width, no overflow */
-        nav > div:last-child {
-          padding: 1rem 1.25rem 1.5rem !important;
+        nav > div[style*="padding: 1rem 2rem"],
+        nav > div[style*="padding:1rem 2rem"] {
+          padding: 0.75rem 1rem 1.25rem !important;
           width: 100% !important;
           box-sizing: border-box !important;
         }
